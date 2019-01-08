@@ -16,7 +16,16 @@ function register(req, res, next) {
     });
 }
 
+function login(req, res, next) {
+    const token = JWTService.generateToken(req.user);
+
+    return res.json({ token });  
+}
+
+
+
 
 module.exports = {
-    register
+    register,
+    login
 }
